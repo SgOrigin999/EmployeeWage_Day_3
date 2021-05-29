@@ -7,6 +7,7 @@ public class EmployeeWage {
 	public static int FULL_TIME_HRS;
 	public static int HALF_TIME_HRS;
 	public static int NUM_OF_WORKING_DAYS = 20;
+	public static int MAX_WORKING_HRS=100 ;
 	public static int TOTAL_WAGE ;
 
 	public static void calculateWage() {
@@ -80,9 +81,35 @@ public class EmployeeWage {
 		}
 		System.out.println("Total Wage::" + TOTAL_WAGE);
 	}
+
+	public static void calWageUsingHoursAndMonth() {
+		int empHrs = 0;
+		int empWage = 0;
+		int totalWorkingHrs = 0;
+		int totalWorkingDays=0;
+		for (totalWorkingDays = 0; totalWorkingHrs <= MAX_WORKING_HRS && totalWorkingDays <NUM_OF_WORKING_DAYS; totalWorkingDays++) {
+		//while(totalWorkingHrs <= MaxWorkingHrs && totalWorkingDays < numOfWorkingDays){
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			System.out.println("Random Number::"+empCheck);
+			switch (empCheck) {
+			case HALF_TIME:
+				empHrs = 4;
+				break;
+			case FULL_TIME:
+				empHrs = 8;
+				break;
+			default:
+				empHrs = 0;
+			}
+			totalWorkingHrs = totalWorkingHrs + empHrs;
+		}
+		TOTAL_WAGE = totalWorkingHrs * WAGEPERHOUR;
+		System.out.println("Total Wage::" + TOTAL_WAGE);
+	}
 	
 	public static void main(String[] args) {
-		
+		System.out.println("Calculate  Wage For Month and Working Hours Using::");
+		calWageUsingHoursAndMonth();
 		System.out.println("Calculate  Wage For Month::");
 		wageForMonth();
 		int random = (int) Math.floor(Math.random() * 10) % 2;
