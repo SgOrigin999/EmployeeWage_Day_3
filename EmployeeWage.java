@@ -25,8 +25,22 @@ public class EmployeeWage {
 			System.out.println("Employee is not Present");
 		}
 	}
+	
+	public static void partTimeWage() {
+		int totalWage = 0;
+		int partTimrHrs=8;
+		double empCheck = Math.floor(Math.random() * 10) % 2;
+		if (empCheck == 1) {
+			totalWage = WAGEPERHOUR * partTimrHrs;
+			System.out.println("Employee PartTimeIf Present Wage::" + totalWage);
+		} else {
+			System.out.println("Employee Absent Then Wage::" + totalWage);
+		}
+	}
 
 	public static void main(String[] args) {
+		System.out.println("Part Time Wage::");
+		partTimeWage();
 		System.out.println("Calculate Daily Wage::");
 		calculateWage();
 		System.out.println("Check Employee Avilablity::");
